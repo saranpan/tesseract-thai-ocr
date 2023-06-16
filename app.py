@@ -2,7 +2,6 @@
 from PIL import Image
 import pytesseract
 import streamlit as st
-import cv2
 import os
 
 def transcribe_image(image_path):
