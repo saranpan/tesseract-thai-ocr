@@ -31,7 +31,7 @@ def main():
 
                 for i in range(len(images)):
                     st.write(f"Page {i} :")
-                    text = pytesseract.image_to_string(img, lang='tha')
+                    text = pytesseract.image_to_string(images[i], lang='tha')
                     st.write(text)
                 
 
