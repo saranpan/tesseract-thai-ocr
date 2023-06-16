@@ -17,7 +17,7 @@ def main():
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
     temp_img_path = os.path.join("images", uploaded_file.name)
     if uploaded_file is not None:
-        with open(temp_img_path), "wb") as f:
+        with open((temp_img_path), "wb") as f:
             f.write(uploaded_file.getbuffer())
         
         img = Image.open(temp_img_path)
