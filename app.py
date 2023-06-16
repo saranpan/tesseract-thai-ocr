@@ -14,8 +14,8 @@ def main():
     st.title("Thai OCR Online")
 
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
-    temp_img_path = os.path.join("images", uploaded_file.name)
     if uploaded_file is not None:
+        temp_img_path = os.path.join("images", uploaded_file.name)
         with open((temp_img_path), "wb") as f:
             f.write(uploaded_file.getbuffer())
         
