@@ -51,20 +51,20 @@ def main():
         st.write(f"file type detect : {file_type}")
         if file_type in ["jpg", "png", "jpeg"]:
             with st.spinner("Transcribing Image .."):
-            img = Image.open(temp_img_path)
-            text = pytesseract.image_to_string(img, lang='tha')
-            st.write(text)
+                img = Image.open(temp_img_path)
+                text = pytesseract.image_to_string(img, lang='tha')
+                st.write(text)
         
         elif file_type in ["pdf"]:
             with st.spinner("Transcribing PDF .."):
-            # Example usage
-            output_images = convert_pdf_to_images(temp_img_path)
+                # Example usage
+                output_images = convert_pdf_to_images(temp_img_path)
 
-            # Save the images
-            for i, img in enumerate(output_images):
-                st.write(f"Page {i} :")
-                text = pytesseract.image_to_string(img, lang='tha')
-                st.write(text)
+                # Save the images
+                for i, img in enumerate(output_images):
+                    st.write(f"Page {i} :")
+                    text = pytesseract.image_to_string(img, lang='tha')
+                    st.write(text)
                 
                 
 
