@@ -44,11 +44,11 @@ def main():
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg", "pdf"])
     if uploaded_file is not None:
         temp_img_path = os.path.join("images", uploaded_file.name)
-        file_type = uploaded_file.type
-        st.write()
+        file_name = uploaded_file.type
         with open((temp_img_path), "wb") as f:
             f.write(uploaded_file.getbuffer())
-        st.write(f"file type detect : {file_type}")
+            
+        st.write(f"file type detect : {file_name}")
         if file_type in ["jpg", "png", "jpeg"]:
             with st.spinner("Transcribing Image .."):
                 img = Image.open(temp_img_path)
