@@ -14,7 +14,7 @@ def convert_pdf_to_images(pdf_path):
         
         for page_num in range(len(reader.pages)):
             page = reader.pages[page_num] 
-            page_data = page.extractText()
+            page_data = page.extract_text()
             
             # Skip empty pages
             if not page_data:
