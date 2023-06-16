@@ -10,12 +10,11 @@ def convert_pdf_to_images(pdf_path):
     images = []
     
     with open(pdf_path, "rb") as f:
-        reader = PyPDF2.PdfReader(f)
+        reader = PyPDF2.PdfFileReader(f)
         
-        for page_num in range(len(reader.pages)):
-            page = reader.pages[page_num] 
-            page_data = page.extract_text()
-            print(None)
+        for page_num in range(reader.numPages):
+            page = reader.getPage(page_num)
+            page_data = page.extractText()
             
             # Skip empty pages
             if not page_data:
