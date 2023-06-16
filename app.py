@@ -23,3 +23,6 @@ def main():
         img = Image.open(temp_img_path)
         text = pytesseract.image_to_string(img, lang='tha')
         st.write(text)
+
+if __name__ == "__main__":
+    main()
