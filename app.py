@@ -45,14 +45,18 @@ def main():
     if uploaded_file is not None:
         temp_img_path = os.path.join("images", uploaded_file.name)
         file_type = uploaded_file.type
+        st.write()
         with open((temp_img_path), "wb") as f:
             f.write(uploaded_file.getbuffer())
-        
+        st.write(f"file type detect : {file_type}")
         if file_type in ["jpg", "png", "jpeg"]:
+            with st.spinner("Transcribing Image ..")
             img = Image.open(temp_img_path)
             text = pytesseract.image_to_string(img, lang='tha')
             st.write(text)
+        
         elif file_type in ["pdf"]:
+            with st.spinner("Transcribing PDF ..")
             # Example usage
             output_images = convert_pdf_to_images(temp_img_path)
 
