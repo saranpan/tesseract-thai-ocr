@@ -10,7 +10,7 @@ def convert_pdf_to_images(pdf_path):
     images = []
     
     with open(pdf_path, "rb") as f:
-        reader = PyPDF2.PdfFileReader(f)
+        reader = PyPDF2.PdfReader(f)
         
         for page_num in range(reader.numPages):
             page = reader.getPage(page_num)
