@@ -42,9 +42,9 @@ def main():
     st.title("Thai OCR Online")
     st.write("support image files jpg, png, jpeg, pdf")
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg", "pdf"])
-    file_type = uploaded_file.name.split(".")[-1]
     if uploaded_file is not None:
         temp_img_path = os.path.join("images", uploaded_file.name)
+        file_type = uploaded_file.type
         with open((temp_img_path), "wb") as f:
             f.write(uploaded_file.getbuffer())
         
